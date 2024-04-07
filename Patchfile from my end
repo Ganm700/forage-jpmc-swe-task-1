@@ -1,0 +1,28 @@
+# client3.py
+
+def getDataPoint(stock_name, bid_price, ask_price):
+    price = (bid_price + ask_price) / 2
+    return (stock_name, bid_price, ask_price, price)
+
+def getRatio(price_a, price_b):
+    if price_b == 0:
+        return "Undefined"
+    else:
+        return price_a / price_b
+
+def main():
+    prices = {}  # Dictionary to store stock prices
+    # Example usage:
+    stock_A_info = getDataPoint("Stock A", 100, 105)
+    stock_B_info = getDataPoint("Stock B", 150, 155)
+    prices[stock_A_info[0]] = stock_A_info[3]  # Store stock A price in the dictionary
+    prices[stock_B_info[0]] = stock_B_info[3]  # Store stock B price in the dictionary
+
+    ratio = getRatio(prices["Stock A"], prices["Stock B"])  # Use prices dictionary to calculate ratio
+
+    print("Stock A Info:", stock_A_info)
+    print("Stock B Info:", stock_B_info)
+    print("Price Ratio (A/B):", ratio)
+
+if __name__ == "__main__":
+    main()
